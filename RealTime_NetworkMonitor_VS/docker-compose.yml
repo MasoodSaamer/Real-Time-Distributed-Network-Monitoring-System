@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  influxdb:
+    image: influxdb:2.7
+    container_name: influxdb
+    ports:
+      - "8086:8086"
+    env_file: .env
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=${INFLUXDB_USERNAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUXDB_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${INFLUXDB_ORG}
+      - DOCKER_INFLUXDB_INIT_BUCKET=${INFLUXDB_BUCKET}
+      - DOCKER_INFLUXDB_INIT_RETENTION=${INFLUXDB_RETENTION}
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUXDB_ADMIN_TOKEN}  # Load the token from .env
+    volumes:
+      - influxdb-storage:/var/lib/influxdb2
+
+  python-app:
+    build:
+      context: ./python-app
+      dockerfile: Dockerfile
+    container_name: python-app
+    depends_on:
+      - influxdb
+    volumes:
+      - ./python-app:/app
+    env_file: .env  # Add this to load environment variables from .env file
+    environment:
+      - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}  # Ensure this is loaded correctly from the .env file
+    tty: true  # Keep terminal open
+
+volumes:
+  influxdb-storage:  # Define the volume here
+
