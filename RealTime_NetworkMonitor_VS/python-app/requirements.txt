@@ -1,2 +1,5 @@
 pingparsing
 influxdb-client
+ping3
+scikit-learn
+numpy
