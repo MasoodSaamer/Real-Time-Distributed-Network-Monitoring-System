@@ -1,7 +1,7 @@
 # Use a Python base image
 FROM python:3.12.5-slim
 
-# Install ping command
+# Install ping library
 RUN apt-get update && apt-get install -y iputils-ping
 
 # Set working directory
