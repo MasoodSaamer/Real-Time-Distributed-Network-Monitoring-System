@@ -32,6 +32,20 @@ services:
       - INFLUXDB_TOKEN=${INFLUXDB_TOKEN}  # Ensure this is loaded correctly from the .env file
     tty: true  # Keep terminal open
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_ADMIN_USER}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_ADMIN_PASSWORD}
+    volumes:
+      - grafana-storage:/var/lib/grafana
+
 volumes:
   influxdb-storage:  # Define the volume here
+  grafana-storage:
 
