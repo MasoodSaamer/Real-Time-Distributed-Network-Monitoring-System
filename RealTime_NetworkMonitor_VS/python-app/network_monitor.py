@@ -12,7 +12,7 @@ from sklearn.ensemble import IsolationForest # For anomaly detection using isola
 import numpy as np
 
 
-# InfluxDB client configuration. Unless you plan to have your program be fully local, change the token, org and bucket values in the .env environment
+# InfluxDB client configuration. Unless you plan to have your source code not be exposed, change the token, org and bucket values in the .env environment
 influxdb_url = "http://influxdb:8086"
 token = os.getenv("INFLUXDB_TOKEN")  # Ensure it only uses environment variable
 org = os.getenv("INFLUXDB_ORG")  # Also ensure organization and bucket are loaded from environment variables
