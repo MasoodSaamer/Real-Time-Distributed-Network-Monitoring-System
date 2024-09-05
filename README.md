@@ -109,6 +109,19 @@ The `network_monitor.py` script is the core of the monitoring system. It continu
      - Choose InfluxDB and provide the necessary credentials and URLs.
      - Use `InfluxQL` queries to make your own queries in Grafana to visualize the data.
 
+
+## Outcome / Results
+
+### 1. InfluxDB Data Explorer View
+
+![InfluxDB Data Explorer View](images/RealTime_network_InfluxDB_Data.jpg)
+
+### 2. Grafana Average RTT Visualization
+
+![Grafana Average RTT Visualization](images/RealTime_network_Grafana_RTT_Average_Data.jpg)
+
+
+
 ### Additional Notes
 
 - **Anomaly Detection**: The `detect_anomalies` function will log anomalies separately in InfluxDB. You can set up alerts in Grafana to be notified when anomalies are detected.
