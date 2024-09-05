@@ -69,7 +69,7 @@ EOF
     client1.vm.boot_timeout = 600  # Increased timeout for boot
 
     # Sync the VS project folder containing docker-compose.yml. Replace this path with your own path for your VS folder.
-    config.vm.synced_folder "C:/Users/prime/Desktop/Real_Time_Network_Monitor/RealTime_NetworkMonitor_VS", "/vagrant/vs-project", type: "virtualbox", mount_options: ["dmode=777", "fmode=777"]
+    config.vm.synced_folder "/path/ToYour/ProjectWith/docker-compose.yml/", "/vagrant/vs-project", type: "virtualbox", mount_options: ["dmode=777", "fmode=777"]
 
     # Provision the client
     client1.vm.provision "shell", inline: <<-SHELL
@@ -108,7 +108,7 @@ client {
 }
 data_dir = "/opt/nomad/data"
 advertise {
-  http = "192.168.56.5:4646"  # Advertise the correct Host-Only network IP
+  http = "192.168.56.5:4646"
   rpc  = "192.168.56.5:4647"
   serf = "192.168.56.5:4648"
 }
