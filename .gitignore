@@ -25,21 +25,3 @@ RealTime_NetworkMonitor_VS/.env
 # Ignore system files
 .DS_Store
 Thumbs.db
-
-# Ignore all other files you marked in red in your screenshots
-Real-Time Distributed Network Monitoring System/
-Documentation.txt
-Example for running influxDB on python.jpg
-First Visulization in InfluxDB.jpg
-InfluxDB initial setup screen.jpg
-Nomad job should look like this.jpg
-og docker-compose.txt
-network_monitor code 1.txt
-Phase 1-2.jpg
-Phase 2-3.jpg
-Phase 4-5.jpg
-Phase 6-7.jpg
-Second Visulization in InfluxDB using Docker.jpg
-vagrantfile with 2 clients.txt
-og vagrantfile.txt
-Unused nomad jobs/
